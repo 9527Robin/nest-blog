@@ -20,15 +20,12 @@ const getPageUrl = (eid, chapter, page, domain = 'https://www.langrenxiaoshuo.co
 }
 
 export const generateStaticParams = async () => {
-  const totalPages = 24
-  const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
-  return paths
+  return []
 }
 
 export default async function BookIndexPage(req) {
   const params = req.params
-  const data = await getContent(req.searchParams.url)
-  const searchParams = req.searchParams.url
+  const data = await getContent(req.searchParams?.url)
   if (!data) {
     return <>404</>
   }
