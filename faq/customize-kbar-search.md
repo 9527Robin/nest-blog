@@ -17,41 +17,6 @@ import { Blog } from 'contentlayer/generated'
 export const SearchProvider = ({ children }) => {
   const router = useRouter()
   return (
-    <KBarSearchProvider
-      kbarConfig={{
-        searchDocumentsPath: 'search.json',
-        defaultActions: [
-          {
-            id: 'homepage',
-            name: 'Homepage',
-            keywords: '',
-            shortcut: ['h', 'h'],
-            section: 'Home',
-            perform: () => router.push('/'),
-          },
-          {
-            id: 'projects',
-            name: 'Projects',
-            keywords: '',
-            shortcut: ['p'],
-            section: 'Home',
-            perform: () => router.push('/projects'),
-          },
-        ],
-        onSearchDocumentsLoad(json) {
-          return json.map((post: CoreContent<Blog>) => ({
-            id: post.path,
-            name: post.title,
-            keywords: post?.summary || '',
-            section: 'Blog',
-            subtitle: post.tags.join(', '),
-            perform: () => router.push('/' + post.path),
-          }))
-        },
-      }}
-    >
-      {children}
-    </KBarSearchProvider>
   )
 }
 ```
@@ -66,7 +31,7 @@ function createSearchIndex(allBlogs) {
   ) {
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify((sortPosts(allBlogs)))
+      JSON.stringify(sortPosts(allBlogs))
     )
     console.log('Local search index generated...')
   }
