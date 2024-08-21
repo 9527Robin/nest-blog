@@ -19,10 +19,6 @@ const getPageUrl = (eid, chapter, page, domain = 'https://www.langrenxiaoshuo.co
   return domain + eid + '/' + chapter + '_' + page + '.html'
 }
 
-export const generateStaticParams = () => {
-  return []
-}
-
 export default async function BookIndexPage(req) {
   const params = req.params
   const data = await getContent(req.searchParams?.url)
