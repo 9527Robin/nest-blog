@@ -13,11 +13,11 @@ export default function SearchPage() {
         aria-label="Search"
         type="text"
         placeholder="Search"
-        className="block col-span-4 px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+        className="col-span-4 block rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
       />
       <Link
         href={'/book/0?url=' + url}
-        className="p-2 text-center text-gray-500 transition-all bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+        className="rounded-md bg-gray-200 p-2 text-center text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
       >
         提交
       </Link>
