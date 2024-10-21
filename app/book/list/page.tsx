@@ -1,5 +1,5 @@
-import { getContent } from '../[page]/page'
 import Link from 'next/link'
+import { getContent } from 'utils'
 
 const INDEX_URL = 'https://www.langrenxiaoshuo.com/allbook.html'
 

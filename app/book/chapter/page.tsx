@@ -1,4 +1,4 @@
-import { getContent } from '../[page]/page'
+import { getContent } from 'utils'
 
 export default async function ChapterPage(req) {
   const data = await getContent(req.searchParams?.url)
