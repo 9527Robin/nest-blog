@@ -21,14 +21,13 @@ export default async function ListPage(req) {
   const pageNum = $('.page_num .info b').text()
   const nextLink = $('a[title=下一页]')[0].attribs.href
   const preLink = $('a[title=上一页]')[0].attribs.href
-  console.log(pageNum, 'pageNum')
   return (
     <>
       <ul>
         {listData.map((item, index) => {
           return (
             <li className="border-b-2 " key={index}>
-              <a className="truncate text-blue-600" href={item.link}>
+              <a className="truncate text-blue-600" href={'/book/chapter?url=' + item.link}>
                 {item.name}
               </a>
               <p className="truncate text-sm">{item.chapter}</p>
