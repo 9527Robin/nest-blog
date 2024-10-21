@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-async function getContent(url: string) {
+export async function getContent(url: string) {
   if (!url) return
   // const res = await fetch('https://www.langrenxiaoshuo.com/html/fengyanyilu/787342.html')
   // console.log(url, 'url')
@@ -22,9 +22,7 @@ const getPageUrl = (eid, chapter, page, domain = 'https://www.langrenxiaoshuo.co
 export default async function BookIndexPage(req) {
   const params = req.params
   const data = await getContent(req.searchParams?.url)
-  if (!data) {
-    return <>404</>
-  }
+  if (!data) return 404
   const cheerio = require('cheerio')
   const $ = cheerio.load(data.props.result)
   // console.log(data.props.result)
